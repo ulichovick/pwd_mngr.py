@@ -1,0 +1,106 @@
+#:include accounts.kv
+<MyRoot>:
+    entra_usr: entra_usr
+    entra_pwwd: entra_pwwd
+    registra_usr: registra_usr
+    confirma_registra_pwwd: confirma_registra_pwwd
+    registra_pwwd: registra_pwwd
+    padding: 10
+    do_default_tab: False
+    TabbedPanelItem:
+        text: 'Iniciar Sesión'
+        StackLayout:
+            padding: 10
+            spacing: 10
+            width: 250
+            height: 100
+            size_hint:(1, None)
+            Label:
+                text: "Usuario"
+                font_size: 15
+                bold: True
+                height: 30
+                size_hint:(1, None)
+            TextInput:
+                id: entra_usr
+                write_tab: False
+                font_size: 15
+                height: 30
+                size_hint:(1, None)
+            Label:
+                text: "Contraseña"
+                font_size: 15
+                bold: True
+                height: 30
+                size_hint:(1, None)
+            TextInput:
+                id: entra_pwwd
+                write_tab: False
+                password: True
+                font_size: 15
+                height: 30
+                size_hint:(1, None)
+            AnchorLayout:
+                anchor_x: 'center'
+                anchor_y: 'top'
+                Button:
+                    text: "Aceptar"
+                    font_size: 15
+                    height: 30
+                    size_hint:(None, None)
+                    on_press: 
+                        root.verifica_usuario()
+    TabbedPanelItem:
+        text: 'Registrarse'
+        StackLayout:
+            padding: 10
+            spacing: 10
+            width: 250
+            height: 100
+            size_hint:(1, None)
+            Label:
+                text: "Usuario"
+                font_size: 15
+                bold: True
+                height: 30
+                size_hint:(1, None)
+            TextInput:
+                id: registra_usr
+                write_tab: False
+                font_size: 15
+                height: 30
+                size_hint:(1, None)
+            Label:
+                text: "Contraseña"
+                font_size: 15
+                bold: True
+                height: 30
+                size_hint:(1, None)
+            TextInput:
+                id: registra_pwwd
+                write_tab: False
+                password: True
+                font_size: 15
+                height: 30
+                size_hint:(1, None)
+            Label:
+                text: "Confirmar Contraseña"
+                font_size: 15
+                bold: True
+                height: 30
+                size_hint:(1, None)
+            TextInput:
+                id: confirma_registra_pwwd
+                write_tab: False
+                password: True
+                font_size: 15
+                height: 30
+                size_hint:(1, None)
+            AnchorLayout:
+                anchor_x: 'center'
+                anchor_y: 'top'
+                Button:
+                    text: "Aceptar"
+                    font_size: 15
+                    height: 30
+                    size_hint:(None, None)
