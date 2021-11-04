@@ -21,9 +21,10 @@ class MyRoot(TabbedPanel, StackLayout,Screen):
         if self.resultado is not None:
             self.manager.transition = SlideTransition(direction="left")
             self.manager.current = 'Accounts'
+            self.manager.get_screen('Accounts').__init__(pwwd = contra)
         else:
             popup = Popup(title='Error',
-                content=Label(text='Bruh'),
+                content=Label(text='Usuario inexistente o contraseña incorrecta'),
                 size_hint=(None, None), size=(400, 400))
             popup.open()
     def resetForm(self):

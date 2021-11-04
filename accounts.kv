@@ -1,11 +1,12 @@
 <Accounts>:
-    BoxLayout:
-        orientation: 'vertical'
-
-        Label:
-            text: "You are now connected sucka"
-            font_size: 32
+    StackLayout:
+        padding: 10
+        spacing: 10
+        width: 250
+        height: 100
+        size_hint:(1, None)
         Button:
-            text: "Disconnect"
-            font_size: 24
-            on_press: root.disconnect()
+            text: "Crear cuenta"
+            font_size: 15
+            height: 30
+            size_hint:(None, None)

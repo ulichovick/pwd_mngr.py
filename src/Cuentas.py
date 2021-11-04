@@ -2,7 +2,7 @@ import sqlite3
 from .Cifrado import Cifrado
 
 
-class cuenta:
+class Cuenta:
     def __init__(
                 self,
                 id_usuario="",
