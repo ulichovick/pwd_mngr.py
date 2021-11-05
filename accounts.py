@@ -12,11 +12,12 @@ class Accounts(StackLayout,Screen):
     Ventana de cuentas
     """
 
-    def __init__(self, pwwd = "", **kwargs):
+    def __init__(self, pwwd = "", usuario = "", **kwargs):
         """
         construye la ventana 
         """
         self.master_password = pwwd
+        self.id_usuario = usuario
         super(Accounts, self).__init__( **kwargs)
         self.data_cuentas = Cuenta(
                                 master_password=self.master_password,
