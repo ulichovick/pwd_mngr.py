@@ -59,11 +59,10 @@ class Cuenta:
                                             """select Nombre_cuenta,Login,URL,contraseña,sal,ID_cuenta,ID_usuario from cuentas where ID_usuario = ?""",
                                             (self.id_usuario))
             self.query = self.query.fetchall()
-            return (self.query)
+            return self.query
 
-        except Exception as err:
-            self.resultado = err
-            return self.resultado
+        except sqlite3.Error as err:
+            return err
         finally:
             self.conexion.close()
 

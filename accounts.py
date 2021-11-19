@@ -12,16 +12,27 @@ class Accounts(StackLayout,Screen):
     Ventana de cuentas
     """
 
-    def __init__(self, pwwd = "", usuario = "", **kwargs):
+    def custom_constructor(self,id_usu = "", pwwd = "", usuario = "", **kwargs):
         """
         construye la ventana 
         """
-        self.master_password = pwwd
-        self.id_usuario = usuario
+        self.master_password = str(pwwd)
+        self.id_usuario = str(id_usu)
+        self.nom_usu = usuario
+        print(self.id_usuario)
         super(Accounts, self).__init__( **kwargs)
+        self.data_cuenta = []
+        self.boton_cuentas = {}
+        self.dibuja_botones()
+
+    def dibuja_botones(self):
+        """
+        docstring
+        """
+        self.id_usuario = str(self.id_usuario)
         self.data_cuentas = Cuenta(
-                                master_password=self.master_password,
-                                id_usuario=self.id_usuario).verificar_cuentas()
+                        master_password=self.master_password,
+                        id_usuario=self.id_usuario).verificar_cuentas()
         for row in self.data_cuentas:
             sal = row[4]
             self.cifrado = Cifrado(self.master_password)
@@ -41,6 +52,7 @@ class Accounts(StackLayout,Screen):
         if self.info_cuentas is not None:
             for row in self.info_cuentas:
                 self.boton_cuentas[self.i] = Button(text=row[0],
+                                                    size_hint=(None, 0.15)
                                                     #command= lambda data=row: self.detallar(data)
                                                     )
                 self.add_widget(self.boton_cuentas[self.i])

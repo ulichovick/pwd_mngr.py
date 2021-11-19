@@ -21,7 +21,7 @@ class MyRoot(TabbedPanel, StackLayout,Screen):
         if self.resultado is not None:
             self.manager.transition = SlideTransition(direction="left")
             self.manager.current = 'Accounts'
-            self.manager.get_screen('Accounts').__init__(pwwd = contra, usuario = usuario)
+            self.manager.get_screen('Accounts').custom_constructor(id_usu = self.resultado,pwwd = contra, usuario = usuario)
         else:
             popup = Popup(title='Error',
                 content=Label(text='Usuario inexistente o contraseña incorrecta'),
