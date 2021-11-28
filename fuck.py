@@ -10,7 +10,7 @@ from src.usuarios import Usuario
 from accounts import Accounts
 import kivy
 
-Window.size = (500, 500)
+Window.size = (400, 500)
 
 class MyRoot(TabbedPanel, StackLayout,Screen):
 
@@ -27,9 +27,8 @@ class MyRoot(TabbedPanel, StackLayout,Screen):
                 content=Label(text='Usuario inexistente o contraseña incorrecta'),
                 size_hint=(None, None), size=(400, 400))
             popup.open()
-    def resetForm(self):
-        self.entra_usr.text = ""
-        self.entra_pwwd.text = ""
+            self.entra_usr.text = ""
+            self.entra_pwwd.text = ""
 
 class Fuck(App):
     def build(self):

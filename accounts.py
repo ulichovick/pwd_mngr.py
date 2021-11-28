@@ -19,6 +19,7 @@ class Accounts(StackLayout,Screen):
         self.master_password = str(pwwd)
         self.id_usuario = str(id_usu)
         self.nom_usu = usuario
+        self.label_usu.text = "Cuentas de " + self.nom_usu
         print(self.id_usuario)
         super(Accounts, self).__init__( **kwargs)
         self.data_cuenta = []
@@ -52,7 +53,9 @@ class Accounts(StackLayout,Screen):
         if self.info_cuentas is not None:
             for row in self.info_cuentas:
                 self.boton_cuentas[self.i] = Button(text=row[0],
-                                                    size_hint=(None, 0.15)
+                                                    size_hint=(None, None),
+                                                    width = 100,
+                                                    height = 50
                                                     #command= lambda data=row: self.detallar(data)
                                                     )
                 self.add_widget(self.boton_cuentas[self.i])
