@@ -1,6 +1,3 @@
-from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.uix.screenmanager import Screen, SlideTransition
 from kivy.uix.stacklayout import StackLayout
@@ -12,6 +9,9 @@ class Accounts(StackLayout,Screen):
     Ventana de cuentas
     """
 
+    def __init__(self, **kwargs):
+        super(Accounts, self).__init__( **kwargs)
+
     def custom_constructor(self,id_usu = "", pwwd = "", usuario = "", **kwargs):
         """
         construye la ventana 
@@ -20,8 +20,6 @@ class Accounts(StackLayout,Screen):
         self.id_usuario = str(id_usu)
         self.nom_usu = usuario
         self.label_usu.text = "Cuentas de " + self.nom_usu
-        print(self.id_usuario)
-        super(Accounts, self).__init__( **kwargs)
         self.data_cuenta = []
         self.boton_cuentas = {}
         self.dibuja_botones()
@@ -55,9 +53,8 @@ class Accounts(StackLayout,Screen):
                 self.boton_cuentas[self.i] = Button(text=row[0],
                                                     size_hint=(None, None),
                                                     width = 100,
-                                                    height = 50
-                                                    #command= lambda data=row: self.detallar(data)
-                                                    )
+                                                    height = 50,
+                                                    on_press= lambda data=row: self.detalles_cuenta(row))
                 self.add_widget(self.boton_cuentas[self.i])
                 self.k = self.k + 1
                 self.j = self.j + 1
@@ -68,7 +65,17 @@ class Accounts(StackLayout,Screen):
         else:
             pass
 
+
+    def detalles_cuenta(self, data):
+        """
+        poh eso, saca detalles de las cuentas
+        """
+        self.manager.transition = SlideTransition(direction="left")
+        self.manager.current = 'Details'
+        self.manager.get_screen('Details').custom_construct(data = data)
+
+
     def disconnect(self):
         self.manager.transition = SlideTransition(direction="right")
         self.manager.current = 'Login'
-        self.manager.get_screen('Login').resetForm()
+        self.manager.get_screen('Login')

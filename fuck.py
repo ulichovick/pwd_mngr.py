@@ -8,6 +8,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.label import Label
 from src.usuarios import Usuario
 from accounts import Accounts
+from details import Details
 import kivy
 
 Window.size = (400, 500)
@@ -35,6 +36,7 @@ class Fuck(App):
         manager = ScreenManager()
         manager.add_widget(MyRoot(name='Login'))
         manager.add_widget(Accounts(name='Accounts'))
+        manager.add_widget(Details(name='Details'))
         return manager
 
 if __name__ == '__main__':

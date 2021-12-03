@@ -1,14 +1,13 @@
-#:include details.kv
-<Accounts>:
-    label_usu: label_usu
+<Details>:
+    label_cuenta: label_cuenta
     StackLayout:
         padding: 10
         spacing: 10
         width: 250
-        height: 100
+        height: 50
         size_hint:(1, None)
         Label:
-            id: label_usu
+            id: label_cuenta
             text: ""
             font_size: 15
             bold: True
@@ -21,3 +20,4 @@
             size_hint:(None, None)
             on_press: 
                 root.disconnect()
+
